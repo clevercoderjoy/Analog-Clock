@@ -8,7 +8,7 @@ function setDate() {
   var now = new Date(); // scripting seconds
 
   var seconds = now.getSeconds();
-  var secondsDegrees = seconds / 60 * 360 + 90;
+  var secondsDegrees = seconds * 6 + 89;
   secondHand.style.transform = "rotate(".concat(secondsDegrees, "deg)"); // scripting minutes
 
   var minutes = now.getMinutes();
@@ -17,8 +17,24 @@ function setDate() {
 
   var hours = now.getHours();
   var hoursDegrees = hours / 12 * 360 + minutes / 60 * 30 + 90;
-  hourHand.style.transform = "rotate(".concat(hoursDegrees, ")deg");
+  console.log(hours, hoursDegrees);
+  hourHand.style.transform = "rotate(".concat(hoursDegrees, "deg)");
 }
 
 setInterval(setDate, 1000);
-setDate();
+setDate(); // setInterval(() => {
+//     d = new Date();
+//     var htime = d.getHours();
+//     console.log(htime);
+//     var mtime = d.getMinutes();
+//     console.log(mtime);
+//     var stime = d.getSeconds();
+//     console.log(stime);
+//     var hRotation = (30 * htime) + (mtime / 2);
+//     console.log(hRotation);
+//     var mRotation = 6 * mtime;
+//     var sRotation = 6 * stime;
+//     hourHand.style.transform = `rotate(${hRotation}deg)`;
+//     minuteHand.style.transform = `rotate(${mRotation}deg)`;
+//     secondHand.style.transform = `rotate(${sRotation}deg)`;
+// }, 1000);
